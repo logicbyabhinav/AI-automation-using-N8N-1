@@ -68,7 +68,7 @@
 </div>
 <div class="flex flex-col gap-2 md:col-span-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Website Type</label>
-<select class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white appearance-none outline-none">
+<select id="s2_type" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white appearance-none outline-none">
 <option disabled="" selected="" value="">Select the type of website</option>
 <option value="ecommerce">E-Commerce Store</option>
 <option value="portfolio">Portfolio / Creative Showcase</option>
@@ -79,7 +79,7 @@
 </div>
 <div class="flex flex-col gap-2 md:col-span-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Project Description</label>
-<textarea class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Describe the core purpose and goals of this project..." rows="4"></textarea>
+<textarea id="s2_description" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Describe the core purpose and goals of this project..." rows="4"></textarea>
 </div>
 <!-- Details Group -->
 <div class="col-span-1 md:col-span-2 flex items-center gap-2 pb-2 border-b border-white/5 mb-2 mt-4">
@@ -88,19 +88,19 @@
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Key Features</label>
-<textarea class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="e.g., User Auth, Payments, Booking System..." rows="3"></textarea>
+<textarea id="s2_features" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="e.g., User Auth, Payments, Booking System..." rows="3"></textarea>
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Design Preferences</label>
-<textarea class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="e.g., Minimalist, Dark Mode, High Contrast..." rows="3"></textarea>
+<textarea id="s2_design" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="e.g., Minimalist, Dark Mode, High Contrast..." rows="3"></textarea>
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Reference URLs</label>
-<input class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="https://inspiration.com" type="text"/>
+<input id="s2_refs" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="https://inspiration.com" type="text"/>
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Target Timeline</label>
-<select class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white appearance-none outline-none">
+<select id="s2_timeline" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white appearance-none outline-none">
 <option value="asap">ASAP (1-2 weeks)</option>
 <option value="month">Within a month</option>
 <option value="quarter">1-3 months</option>
@@ -124,7 +124,7 @@
                     >
                       <span class="material-symbols-outlined">arrow_back</span
                       ><span>Previous</span></button
-                    ><button onclick="window.location.href='STEP03.html'"
+                    ><button onclick="proceedFromStep2()"
                       class="flex items-center justify-center gap-3 bg-[#1F6FEB] hover:bg-[#1659bd] text-white font-bold py-3 px-10 rounded-md transition-all group"
                     >
                       <span>Proceed to Step 3</span
@@ -149,4 +149,12 @@
 </div>
 </div></div>
 </div>
+<script src="Logic.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    guardStep(['step1']);
+    restoreStep2();
+    attachLiveValidation();
+  });
+</script>
 </body></html>

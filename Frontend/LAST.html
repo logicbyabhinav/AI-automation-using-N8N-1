@@ -93,4 +93,15 @@
 </footer>
 </div>
 </div>
+<script src="Logic.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const data = JSON.parse(localStorage.getItem('ai_automation_form') || '{}');
+    if (!data.submitted) {
+      window.location.href = 'index.html';
+    } else {
+      clearAllData();
+    }
+  });
+</script>
 </body></html>

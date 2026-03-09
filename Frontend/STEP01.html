@@ -79,15 +79,15 @@
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Full Name</label>
-<input class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Johnathan Doe" type="text"/>
+<input id="s1_name" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Johnathan Doe" type="text"/>
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Email Address</label>
-<input class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="j.doe@company.tech" type="email"/>
+<input id="s1_email" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="j.doe@company.tech" type="email"/>
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Phone Number</label>
-<input class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="+1 (555) 000-0000" type="tel"/>
+<input id="s1_phone" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="+1 (555) 000-0000" type="tel"/>
 </div>
 <!-- Professional Group -->
 <div class="col-span-1 md:col-span-2 flex items-center gap-2 pb-2 border-b border-white/5 mb-2">
@@ -96,16 +96,16 @@
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Job Title</label>
-<input class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Senior Systems Architect" type="text"/>
+<input id="s1_job" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Senior Systems Architect" type="text"/>
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Company Name</label>
-<input class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Global Tech Solutions" type="text"/>
+<input id="s1_company" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Global Tech Solutions" type="text"/>
 </div>
 <!-- Full Width Address -->
 <div class="col-span-1 md:col-span-2 flex flex-col gap-2">
 <label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Physical Address</label>
-<textarea class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Street Address, Suite, City, Country" rows="3"></textarea>
+<textarea id="s1_address" class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Street Address, Suite, City, Country" rows="3"></textarea>
 </div>
 </div>
 <!-- Footer Actions -->
@@ -114,7 +114,7 @@
 <span class="material-symbols-outlined text-sm">lock</span>
                                 Data encrypted and securely stored
                             </div>
-<button onclick="window.location.href='STEP02.html'" class="flex items-center justify-center gap-3 bg-[#1F6FEB] hover:bg-[#1659bd] text-white font-bold py-3 px-10 rounded-md transition-all group">
+<button onclick="proceedFromStep1()" class="flex items-center justify-center gap-3 bg-[#1F6FEB] hover:bg-[#1659bd] text-white font-bold py-3 px-10 rounded-md transition-all group">
 <span>Proceed to Step 2</span>
 <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
@@ -135,4 +135,11 @@
 </div>
 </div>
 </div>
+<script src="Logic.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    restoreStep1();
+    attachLiveValidation();
+  });
+</script>
 </body></html>

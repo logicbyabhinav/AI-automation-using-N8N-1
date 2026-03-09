@@ -147,7 +147,7 @@
                     <label
                       class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter"
                       >Budget Range</label
-                    ><select
+                    ><select id="s3_budget"
                       class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white transition-all outline-none appearance-none"
                     >
                       <option disabled="" selected="" value="">
@@ -163,7 +163,7 @@
                     <label
                       class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter"
                       >Payment Preference</label
-                    ><select
+                    ><select id="s3_payment"
                       class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white transition-all outline-none appearance-none"
                     >
                       <option disabled="" selected="" value="">
@@ -179,7 +179,7 @@
                     <label
                       class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter"
                       >Developer Team Conditions</label
-                    ><textarea
+                    ><textarea id="s3_team"
                       class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none"
                       placeholder="Describe specific team requirements, experience levels, or technical stack preferences..."
                       rows="3"
@@ -189,7 +189,7 @@
                     <label
                       class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter"
                       >Additional Notes</label
-                    ><textarea
+                    ><textarea id="s3_notes"
                       class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none"
                       placeholder="Any other details you'd like to share?"
                       rows="3"
@@ -212,7 +212,7 @@
                     >
                       <span class="material-symbols-outlined">arrow_back</span
                       ><span>Previous</span></button
-                    ><button onclick="window.location.href='STEP04.html'"
+                    ><button onclick="proceedFromStep3()"
                       class="flex items-center justify-center gap-3 bg-[#1F6FEB] hover:bg-[#1659bd] text-white font-bold py-3 px-10 rounded-md transition-all group"
                     >
                       <span>Proceed to Step 4</span
@@ -242,5 +242,13 @@
         </div>
       </div>
     </div>
+<script src="Logic.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    guardStep(['step1', 'step2']);
+    restoreStep3();
+    attachLiveValidation();
+  });
+</script>
   </body>
 </html>
