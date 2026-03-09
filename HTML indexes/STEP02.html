@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Onboarding - Step 2</title><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#1F6FEB',
+                            dark: '#1659bd',
+                            bg: '#050a10',
+                            card: '#0d1520',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['JetBrains Mono', 'monospace'],
+                        display: ['JetBrains Mono', 'monospace'],
+                    },
+                    borderRadius: {
+                        'custom': '4px',
+                    }
+                },
+            },
+        }</script><style>
+        body {
+            background-color: #050a10;
+            color: #ffffff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .technical-grid {
+            background-image: radial-gradient(circle at 1px 1px, rgba(31, 111, 235, 0.1) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+    </style></head>
+<body class="bg-brand-bg font-sans text-white min-h-screen antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden technical-grid">
+<div class="layout-container flex h-full grow flex-col"><div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<!-- Top Header Section -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-[#1F6FEB]/10 px-4 md:px-0 py-6 mb-8">
+<div class="flex items-center gap-4">
+<div class="text-[#1F6FEB]"><div class="w-6 h-6 bg-brand flex items-center justify-center rounded-sm" style="background-color: #1F6FEB;"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div></div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight uppercase">System Onboarding</h2>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</header>
+<main class="flex-1 px-4 md:px-10 py-8">
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="text-[#1F6FEB]">Step 2: Project &amp; Website Requirements</span>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400">50% COMPLETE</span>
+</div>
+<div class="h-1.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-brand shadow-[0_0_10px_rgba(30,112,235,0.5)]" style="width: 50%; background-color: #1F6FEB;"></div>
+</div>
+</div>
+<div class="bg-[#0d1520] border border-[#1F6FEB]/20 rounded-lg p-6 md:p-10 backdrop-blur-sm">
+<div class="mb-8 pb-6 border-b border-white/5">
+<h4 class="text-[#1F6FEB] text-xs font-bold uppercase tracking-widest mb-2">About this Form</h4>
+<p class="text-gray-400 text-sm leading-relaxed">Tell us more about what you need for your website and overall project goals to help our AI agents provide a more accurate cost and time estimate.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<!-- Project Category Group -->
+<div class="col-span-1 md:col-span-2 flex items-center gap-2 pb-2 border-b border-white/5 mb-2">
+<span class="material-symbols-outlined text-[#1F6FEB] text-sm">category</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold uppercase tracking-wider">Website Specification</h3>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Website Type</label>
+<select class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white appearance-none outline-none">
+<option disabled="" selected="" value="">Select the type of website</option>
+<option value="ecommerce">E-Commerce Store</option>
+<option value="portfolio">Portfolio / Creative Showcase</option>
+<option value="corporate">Corporate / Business Site</option>
+<option value="saas">SaaS Landing Page</option>
+<option value="blog">Blog / Content Platform</option>
+</select>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Project Description</label>
+<textarea class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="Describe the core purpose and goals of this project..." rows="4"></textarea>
+</div>
+<!-- Details Group -->
+<div class="col-span-1 md:col-span-2 flex items-center gap-2 pb-2 border-b border-white/5 mb-2 mt-4">
+<span class="material-symbols-outlined text-[#1F6FEB] text-sm">list_alt</span>
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold uppercase tracking-wider">Functional &amp; Aesthetic Details</h3>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Key Features</label>
+<textarea class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="e.g., User Auth, Payments, Booking System..." rows="3"></textarea>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Design Preferences</label>
+<textarea class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="e.g., Minimalist, Dark Mode, High Contrast..." rows="3"></textarea>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Reference URLs</label>
+<input class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white placeholder:text-gray-700 transition-all outline-none" placeholder="https://inspiration.com" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-tighter">Target Timeline</label>
+<select class="w-full bg-[#050a10] border border-[#1F6FEB]/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-[#1F6FEB] focus:border-[#1F6FEB] text-white appearance-none outline-none">
+<option value="asap">ASAP (1-2 weeks)</option>
+<option value="month">Within a month</option>
+<option value="quarter">1-3 months</option>
+<option value="flexible">Flexible / Ongoing</option>
+</select>
+</div>
+</div>
+<!-- Footer Actions -->
+<<div
+                  class="flex items-center justify-between mt-12 pt-6 border-t border-slate-200 dark:border-slate-800"
+                >
+                  <div
+                    class="hidden md:flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs italic"
+                  >
+                    <span class="material-symbols-outlined text-sm">lock</span
+                    >Data encrypted and securely stored
+                  </div>
+                  <div class="flex gap-4">
+                    <button onclick="window.location.href='STEP01.html'"
+                      class="flex items-center justify-center gap-2 bg-transparent hover:bg-white/5 text-slate-400 font-bold py-3 px-6 rounded-md transition-all border border-white/10"
+                    >
+                      <span class="material-symbols-outlined">arrow_back</span
+                      ><span>Previous</span></button
+                    ><button onclick="window.location.href='STEP03.html'"
+                      class="flex items-center justify-center gap-3 bg-[#1F6FEB] hover:bg-[#1659bd] text-white font-bold py-3 px-10 rounded-md transition-all group"
+                    >
+                      <span>Proceed to Step 3</span
+                      ><span
+                        class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
+                        >arrow_forward</span
+                      >
+                    </button>
+                  </div>
+                </div>
+</div>
+</main>
+<footer class="mt-auto px-4 md:px-10 py-8 opacity-40 border-t border-white/5">
+<div class="flex justify-between items-center text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400">
+<span>Terminal v.2.4.0-build</span>
+<div class="flex gap-4">
+<span>Status: Ready</span>
+<span>Node: 01</span>
+</div>
+</div>
+</footer>
+</div>
+</div></div>
+</div>
+</body></html>

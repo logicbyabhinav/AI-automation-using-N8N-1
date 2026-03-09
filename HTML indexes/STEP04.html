@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Onboarding - Step 4: Review</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#1F6FEB',
+                            dark: '#1659bd',
+                            bg: '#050a10',
+                            card: '#0d1520',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['JetBrains Mono', 'monospace'],
+                        display: ['JetBrains Mono', 'monospace'],
+                    },
+                    borderRadius: {
+                        'custom': '4px',
+                    }
+                },
+            },
+        }</script>
+<style>
+        body {
+            background-color: #050a10;
+            color: #ffffff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .technical-grid {
+            background-image: radial-gradient(circle at 1px 1px, rgba(31, 111, 235, 0.1) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+    </style></head>
+<body class="bg-brand-bg text-white min-h-screen font-sans antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden technical-grid">
+<div class="layout-container flex h-full grow flex-col"><div class="px-4 md:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<!-- Top Header Section -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-[#1F6FEB]/10 px-4 md:px-0 py-6 mb-8">
+<div class="flex items-center gap-4">
+<div class="text-[#1F6FEB]"><div class="w-6 h-6 bg-brand flex items-center justify-center rounded-sm" style="background-color: #1F6FEB;"><svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div></div>
+<h2 class="text-slate-100 text-lg font-bold leading-tight tracking-tight uppercase">System Onboarding</h2>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-800 text-slate-300">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-4 md:px-10 py-8">
+<div class="mb-8">
+<div class="flex justify-between items-end mb-2">
+<span class="text-[#1F6FEB]">Step 4: Final Review</span>
+<span class="text-xs font-bold text-slate-400">100% COMPLETE</span>
+</div>
+<div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-brand shadow-[0_0_10px_rgba(30,112,235,0.5)]" style="width: 100%; background-color: #1F6FEB;"></div>
+</div>
+<p class="text-gray-400 text-xs mt-4">Please verify all information before final submission.</p>
+</div>
+<div class="bg-[#0d1520] border border-[#1F6FEB]/20 rounded-lg p-6 md:p-10 backdrop-blur-sm">
+<div class="space-y-12">
+<!-- Personal Details Summary -->
+<div>
+<div class="flex items-center gap-2 pb-2 border-b border-white/5 mb-6">
+<span class="text-[#1F6FEB] material-symbols-outlined">fingerprint</span>
+<h3 class="text-slate-100 text-sm font-bold uppercase tracking-wider">Identity Information</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Full Name</label>
+<div class="text-white font-medium">Alex Rivera</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Email Address</label>
+<div class="text-white font-medium">alex.rivera@techcorp.com</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Phone Number</label>
+<div class="text-white font-medium">+1 (555) 012-3456</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Organization</label>
+<div class="text-white font-medium">TechCorp Solutions</div>
+</div>
+</div>
+</div>
+<!-- Project Details Summary -->
+<div>
+<div class="flex items-center gap-2 pb-2 border-b border-white/5 mb-6">
+<span class="text-[#1F6FEB] material-symbols-outlined">work</span>
+<h3 class="text-slate-100 text-sm font-bold uppercase tracking-wider">Project Context</h3>
+</div>
+<div class="space-y-6">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Project Name</label>
+<div class="text-white font-medium">Cloud Infrastructure Migration 2.0</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Description</label>
+<div class="text-gray-400 text-sm leading-relaxed">Full-scale migration of legacy on-premise servers to a hybrid cloud environment. Includes database optimization, security hardening, and implementation of CI/CD pipelines for automated deployments.</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Priority Level</label>
+<div class="flex items-center gap-2 text-white">
+<span class="h-2 w-2 rounded-full bg-amber-500"></span>
+<span>High Priority</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Budget Summary -->
+<div>
+<div class="flex items-center gap-2 pb-2 border-b border-white/5 mb-6">
+<span class="text-[#1F6FEB] material-symbols-outlined">payments</span>
+<h3 class="text-slate-100 text-sm font-bold uppercase tracking-wider">Budget &amp; Timeline</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Estimated Budget</label>
+<div class="text-white font-medium">$45,000 - $60,000</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Proposed Start Date</label>
+<div class="text-white font-medium">October 12, 2024</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Duration</label>
+<div class="text-white font-medium">3 - 6 Months</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Payment Terms</label>
+<div class="text-white font-medium">Milestone-based (30/40/30)</div>
+</div>
+</div>
+</div>
+<!-- Terms -->
+<div class="flex items-start gap-4 p-4 rounded bg-[#1F6FEB]/5 border border-[#1F6FEB]/10">
+<input class="mt-1 rounded border-slate-700 bg-transparent text-[#1F6FEB] focus:ring-[#1F6FEB] h-4 w-4" id="confirm" type="checkbox"/>
+<label class="text-xs text-gray-400 leading-snug" for="confirm">
+I hereby certify that the information provided above is accurate and complete to the best of my knowledge. I understand that this inquiry is subject to technical review.
+</label>
+</div>
+</div>
+<!-- Footer Actions -->
+<div
+                  class="flex items-center justify-between mt-12 pt-6 border-t border-slate-200 dark:border-slate-800"
+                >
+                  <div
+                    class="hidden md:flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs italic"
+                  >
+                    <span class="material-symbols-outlined text-sm">lock</span
+                    >Data encrypted and securely stored
+                  </div>
+                  <div class="flex gap-4">
+                    <button onclick="window.location.href='STEP03.html'"
+                      class="flex items-center justify-center gap-2 bg-transparent hover:bg-white/5 text-slate-400 font-bold py-3 px-6 rounded-md transition-all border border-white/10"
+                    >
+                      <span class="material-symbols-outlined">arrow_back</span
+                      ><span>Previous</span></button
+                    ><button onclick="window.location.href='LAST.html'"
+                      class="flex items-center justify-center gap-3 bg-[#1F6FEB] hover:bg-[#1659bd] text-white font-bold py-3 px-10 rounded-md transition-all group"
+                    >
+                      <span>Submit Inquiry</span
+                      ><span
+                        class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
+                        >arrow_forward</span
+                      >
+                    </button>
+                  </div>
+                </div>
+</main>
+<!-- Terminal Footer -->
+<footer class="mt-auto px-4 md:px-10 py-8 opacity-40 border-t border-white/5">
+<div class="flex justify-between items-center text-[10px] uppercase tracking-widest text-slate-400">
+<span>Terminal v.2.4.0-build</span>
+<div class="flex gap-4">
+<span>Status: Ready</span>
+<span>Node: 01</span>
+</div>
+</div>
+</footer>
+</div>
+</div></div>
+</div>
+</body></html>
