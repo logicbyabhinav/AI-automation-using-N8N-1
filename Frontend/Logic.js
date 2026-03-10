@@ -424,3 +424,14 @@ function attachLiveValidation() {
     el.addEventListener('change', () => clearError(el));
   });
 }
+
+function sendToN8N(data) {
+
+data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+fetch('https://n8n.yourdomain.com/webhook/your-webhook-id')
+{
+  
+}
+
+}
