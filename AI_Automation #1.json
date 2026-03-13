@@ -1,0 +1,309 @@
+{
+  "name": "AI_Automation #1",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Here is the client submission data:\n\n{{ JSON.stringify($json.body) }}\n\nPlease analyze and return the structured summary.",
+        "options": {
+          "systemMessage": "You are a professional project analyst for a software development agency.\n\nYou will receive client intake form data in JSON format. Your job is to:\n\n1. Read the client details and project requirements carefully\n2. Write a clean, professional summary of what the client wants built\n3. Assess the project complexity as one of: Simple, Medium, or Complex\n4. Suggest a realistic delivery timeline based on the features and budget\n5. List the key technical requirements in simple bullet points\n\nReturn your response in exactly this format:\n\nClient Name:\nProject Type:\nProject Summary:\nKey Technical Requirements:\n-\nComplexity:\nSuggested Timeline:\nBudget Range:\nAdditional Notes:"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -240,
+        -16
+      ],
+      "id": "385f77cb-6b3a-476e-af61-17e1de12c47a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Webhook').item.json.body.personal.email }}",
+        "subject": "=Hello {{ $('Webhook').item.json.body.personal.name }}, we received your project inquiry",
+        "message": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;\">    <div style=\"background-color: #1F6FEB; padding: 30px; border-radius: 8px 8px 0 0; text-align: center;\">     <h1 style=\"color: #ffffff; margin: 0; font-size: 24px;\">Project Inquiry Received</h1>     <p style=\"color: #cce0ff; margin: 8px 0 0 0; font-size: 14px;\">AI Automation — Client Intake System</p>   </div>    <div style=\"background-color: #f9f9f9; padding: 30px; border: 1px solid #e0e0e0;\">      <p style=\"font-size: 16px;\">Hi <strong>{{ $('Webhook').item.json.body.personal.name }}</strong>,</p>      <p style=\"font-size: 15px; line-height: 1.6;\">       Thank you for reaching out! We are excited to learn about your project and appreciate you taking the time to fill out our intake form. Your submission has been received and our team will review it shortly.     </p>      <p style=\"font-size: 15px; line-height: 1.6;\">       In the meantime, here is a quick summary of what you shared with us:     </p>      <div style=\"background-color: #ffffff; border-left: 4px solid #1F6FEB; padding: 20px; margin: 20px 0; border-radius: 4px;\">       <h3 style=\"color: #1F6FEB; margin: 0 0 16px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;\">Your Details</h3>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Name:</strong> {{ $('Webhook').item.json.body.personal.name }}</p>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Email:</strong> {{ $('Webhook').item.json.body.personal.email }}</p>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Company:</strong> {{ $('Webhook').item.json.body.personal.company }}</p>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Job Title:</strong> {{ $('Webhook').item.json.body.personal.job }}</p>     </div>      <div style=\"background-color: #ffffff; border-left: 4px solid #1F6FEB; padding: 20px; margin: 20px 0; border-radius: 4px;\">       <h3 style=\"color: #1F6FEB; margin: 0 0 16px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;\">Project Details</h3>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Website Type:</strong> {{ $('Webhook').item.json.body.project.type }}</p>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Timeline:</strong> {{ $('Webhook').item.json.body.project.timeline }}</p>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Description:</strong> {{ $('Webhook').item.json.body.project.description }}</p>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Key Features:</strong> {{ $('Webhook').item.json.body.project.features }}</p>     </div>      <div style=\"background-color: #ffffff; border-left: 4px solid #1F6FEB; padding: 20px; margin: 20px 0; border-radius: 4px;\">       <h3 style=\"color: #1F6FEB; margin: 0 0 16px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;\">Budget & Team</h3>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Budget Range:</strong> {{ $('Webhook').item.json.body.budget.budget }}</p>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Payment Preference:</strong> {{ $('Webhook').item.json.body.budget.payment }}</p>       <p style=\"margin: 6px 0; font-size: 14px;\"><strong>Team Conditions:</strong> {{ $('Webhook').item.json.body.budget.team }}</p>     </div>      <div style=\"background-color: #eef4ff; border: 1px solid #c0d8ff; padding: 20px; margin: 20px 0; border-radius: 4px;\">       <h3 style=\"color: #1F6FEB; margin: 0 0 12px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;\">\nProject Analysis</h3>       <p style=\"font-size: 14px; line-height: 1.7; white-space: pre-line;\">{{ $('AI Agent').item.json.output }}</p>     </div>      <p style=\"font-size: 15px; line-height: 1.6;\">       Our team will carefully review your requirements and get back to you within <strong>1-2 business days</strong>. If you have any urgent questions in the meantime, feel free to reply directly to this email.     </p>      <p style=\"font-size: 15px;\">       We look forward to working with you!     </p>      <p style=\"font-size: 15px; margin-top: 24px;\">       Warm regards,<br/>       <strong>The AI Automation Team</strong>     </p>    </div>    <div style=\"background-color: #1F6FEB; padding: 16px; border-radius: 0 0 8px 8px; text-align: center;\">     <p style=\"color: #cce0ff; font-size: 12px; margin: 0;\">Submitted on {{ $('Webhook').item.json.body.submittedAt }}</p>     <p style=\"color: #cce0ff; font-size: 12px; margin: 6px 0 0 0;\">This is an automated confirmation email — AI Automation System</p>   </div>  </div>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        112,
+        -112
+      ],
+      "id": "993f2272-eb7a-4be1-a86b-c0dc25a64cce",
+      "name": "Send a message",
+      "webhookId": "1e11f68d-b4ee-459c-85d8-272cd7687db8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "xhcWG6gMc9HIiAv0",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1QINICw1bIODK9548UgnVvtIP89J2XBwhJhrIp5-0D80",
+          "mode": "list",
+          "cachedResultName": "AI Automation Clients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QINICw1bIODK9548UgnVvtIP89J2XBwhJhrIp5-0D80/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QINICw1bIODK9548UgnVvtIP89J2XBwhJhrIp5-0D80/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $('Webhook').item.json.body.personal.name }}",
+            "Email": "={{ $('Webhook').item.json.body.personal.email }}",
+            "Phone": "={{ $('Webhook').item.json.body.personal.phone }}",
+            "Company": "={{ $('Webhook').item.json.body.personal.company }}",
+            "Website Type": "={{ $('Webhook').item.json.body.project.type }}",
+            "Description": "={{ $('Webhook').item.json.body.project.description }}",
+            "Features": "={{ $('Webhook').item.json.body.project.features }}",
+            "Budget": "={{ $('Webhook').item.json.body.budget.budget }}",
+            "Payment": "={{ $('Webhook').item.json.body.budget.payment }}",
+            "Team Notes": "={{ $('Webhook').item.json.body.budget.team }}",
+            "Submitted At": "={{ $('Webhook').item.json.body.submittedAt }}",
+            "AI Summary": "={{ $('AI Agent').item.json.output }}",
+            "Status": "New"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Website Type",
+              "displayName": "Website Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Description",
+              "displayName": "Description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Features",
+              "displayName": "Features",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Payment",
+              "displayName": "Payment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Team Notes",
+              "displayName": "Team Notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "AI Summary",
+              "displayName": "AI Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Submitted At",
+              "displayName": "Submitted At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        112,
+        64
+      ],
+      "id": "4b8d54b8-13a8-46b3-8403-ab2549f3d53f",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rtBrYrQDXSQs2l4m",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "03444bce-0593-431b-abfa-31e4d7b89247",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -448,
+        -16
+      ],
+      "id": "475f477b-a6b5-48ec-9dcc-8414ae17be98",
+      "name": "Webhook",
+      "webhookId": "03444bce-0593-431b-abfa-31e4d7b89247"
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        144
+      ],
+      "id": "f5cea7f3-3fa6-418e-8890-f943b28559f1",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "zA8fEKXm8V51pieo",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "bff36892-101f-4c6e-814e-d7bf130705f5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "96b10f73295b399bf71a269e0d6f72a627db40cd8aaab956dca89062108fd193"
+  },
+  "id": "Dn3YwLm2BtvW7Vj5",
+  "tags": []
+}

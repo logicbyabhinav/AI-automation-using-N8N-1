@@ -467,7 +467,7 @@ function sendToN8N(timestamp) {
   };
 
   fetch(
-    "http://localhost:5678/webhook-test/03444bce-0593-431b-abfa-31e4d7b89247",
+    "http://localhost:5678/webhook/03444bce-0593-431b-abfa-31e4d7b89247",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
